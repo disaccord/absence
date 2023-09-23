@@ -29,7 +29,7 @@ describe("modules", () => {
         const module = modules[0]
         test("module should have one function", () => expect(module.functions.length).toBe(1))
 
-        test("module id should be \"222\"", () => expect(module.id).toBe(222))
+        test("module id should be \"222\"", () => expect(module.hash).toBe("222"))
 
         const func = module.functions[0]
         

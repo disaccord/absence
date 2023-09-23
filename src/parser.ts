@@ -4,7 +4,7 @@ type AbsenceMappings = {
 }
 
 type AbsenceModule = {
-    id: number,
+    hash: string,
     functions: AbsenceFunction[]
 }
 
@@ -42,13 +42,13 @@ function parseModules(input: string): AbsenceModule[] {
 
     let currentModule: AbsenceModule | null = null
     input.split("\n").forEach((line) => {
-        const moduleHeaderRegex = /module (\d+)/
+        const moduleHeaderRegex = /module (.*)/
         const functionDefinition = /fun (.*) to (.*) in (.*)/
         if(moduleHeaderRegex.test(line)) {
             if(currentModule != null) modules.push(currentModule)
             const match = moduleHeaderRegex.exec(line)!!
             currentModule = {
-                id: parseInt(match[1]),
+                hash: match[1],
                 functions: []
             }
         } else if(functionDefinition.test(line)) {
