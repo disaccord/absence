@@ -7,5 +7,5 @@ A mapping format for discord & webpack.
 To install dependencies:
 
 ```bash
-bun install
+pnpm install
 ```
